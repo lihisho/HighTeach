@@ -1,14 +1,20 @@
+package Model;
+
+import Model.myModel;
+
+import java.util.List;
+
 public class User {
     //region Fields:
     private String userName;
-    private int password;
+    private String password;
     private String privateName;
     private String lastName;
     private int teacherId;
     //endregion
 
 
-    public User(String userName, int password, String privateName, String lastName, int teacherId) {
+    public User(String userName, String password, String privateName, String lastName, int teacherId) {
         this.userName = userName;
         this.password = password;
         this.privateName = privateName;
@@ -25,11 +31,11 @@ public class User {
         this.userName = userName;
     }
 
-    public int getPassword() {
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(int password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 

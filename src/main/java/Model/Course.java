@@ -1,3 +1,5 @@
+package Model;
+
 public class Course {
     //Fields:
     private String courseName;
