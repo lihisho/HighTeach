@@ -8,5 +8,29 @@
     <artifactId>HighTeach</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    
+    <dependencies>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.8.5</version>
+        </dependency>
+        <dependency>
+            <groupId>groupId</groupId>
+            <artifactId>HighTeach</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.7</version>
+        </dependency>
+        <dependency>
+        <groupId>org.json</groupId>
+        <artifactId>org.json</artifactId>
+        <version>chargebee-1.0</version>
+    </dependency>
+
+    </dependencies>
+
+
 </project>
