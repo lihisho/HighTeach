@@ -1,12 +1,5 @@
 package Model;
 
-import com.google.gson.*;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
@@ -21,6 +14,10 @@ import org.apache.http.util.EntityUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class myModel {
 
@@ -31,14 +28,15 @@ public class myModel {
      * @return          returns true if succeeded, false otherwise.
      */
     public boolean login(String userName, String password){
+        String function = "/login";
         JSONObject jsonToServer = new JSONObject();
         try {
-            jsonToServer.put("userName", "userName");
-            jsonToServer.put("password", "password");
+            jsonToServer.put("user_name", userName);
+            jsonToServer.put("password", password  );
         }catch(Exception e) {
 
         }
-        jsonToServer = sendingToServer(jsonToServer);
+        jsonToServer = sendingToServer(jsonToServer, function);
         try {
             String answerUserName = jsonToServer.getString("user_name");
             String answerUserFirstName = jsonToServer.getString("first_name");
@@ -58,12 +56,12 @@ public class myModel {
 //
 //        return output;
 //    }
-    public JSONObject sendingToServer(JSONObject jsonToDB) {
+    public JSONObject sendingToServer(JSONObject jsonToDB, String function) {
         JSONObject output = new JSONObject();
         CloseableHttpClient httpClient = HttpClientBuilder.create().build();
         try {
             try {
-                HttpPost request = new HttpPost("http://132.73.206.196/");
+                HttpPost request = new HttpPost("http://132.73.206.196"+function);
                 StringEntity params = new StringEntity(jsonToDB.toString());
                 request.addHeader("content-type", "application/json");
                 request.setEntity(params);
@@ -80,7 +78,7 @@ public class myModel {
 
         try {
             HttpClient httpclient = new DefaultHttpClient();
-            HttpPost httppost = new HttpPost("http://132.73.206.196/");
+            HttpPost httppost = new HttpPost("http://132.73.206.196"+function);
 
             List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
             nameValuePairs.add(new BasicNameValuePair("action", "getjson"));
